@@ -55,12 +55,9 @@ public class Member {
     private List<Notice> requestMemberNotice = new ArrayList<>(); // 직접 신청을 받은 사람
 
     @OneToMany(mappedBy = "responseMember", cascade = CascadeType.REMOVE, orphanRemoval = true)
-    private List<Notice> responseMemberNotice = new ArrayList<>();; // 직접 신청한 사람
+    private List<Notice> responseMemberNotice = new ArrayList<>(); // 직접 신청한 사람
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE, orphanRemoval = true)
-    private List<Tag> tagList = new ArrayList<>();; // 직접 신청한 사람
-
-
-    // Member를 기준으로 profile(프로필),follow(팔로우 목록),post(사용자 작성 포스트),action (각 포스트에 대한 반응),userTag (사용자가 만든 태그), notice (알림)
+    private List<Tag> tagList = new ArrayList<>(); // 직접 신청한 사람
 
 }

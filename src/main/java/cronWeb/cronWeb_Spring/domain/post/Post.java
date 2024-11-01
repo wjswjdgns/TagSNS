@@ -4,11 +4,15 @@ import cronWeb.cronWeb_Spring.domain.Like;
 import cronWeb.cronWeb_Spring.domain.Retwit;
 import cronWeb.cronWeb_Spring.domain.member.Member;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
-
+@Entity
+@Getter
+@Setter
 public class Post {
 
     @Id @GeneratedValue

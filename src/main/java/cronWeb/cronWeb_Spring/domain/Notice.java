@@ -22,10 +22,10 @@ public class Notice {
     private LocalDateTime createAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "requestMember_id")
-    private Member RequestMember;
+    @JoinColumn(name = "requestMemberNotice_id")
+    private Member requestMember;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "responseMember_id")
-    private Member ResponseMember;
+    @JoinColumn(name = "responseMemberNotice_id")
+    private Member responseMember;
 }
