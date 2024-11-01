@@ -1,10 +1,13 @@
 package cronWeb.cronWeb_Spring.domain.post;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import cronWeb.cronWeb_Spring.domain.Like;
+import cronWeb.cronWeb_Spring.domain.Retwit;
+import cronWeb.cronWeb_Spring.domain.member.Member;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Post {
 
@@ -18,7 +21,17 @@ public class Post {
     private LocalDateTime createAt;
     private LocalDateTime updateAt;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="UserId")
+    private Member member;
 
-    // 좋아요, 리트윗, 댓글 수
+    @OneToOne(mappedBy = "post", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    private PostInfo postInfo;
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE)
+    private Set<Like> likes = new HashSet<>();
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE)
+    private Set<Retwit> retwits = new HashSet<>();
 
 }

@@ -20,7 +20,6 @@ public class MemberRepository {
         em.persist(member);
         return member.getId();
     }
-
     public Member find(Long id){
         return em.find(Member.class, id);
     }
@@ -30,7 +29,6 @@ public class MemberRepository {
         em.persist(followMember);
         return followMember.getId();
     }
-
     // 특정 회원의 팔로워 (follower) 목록 가져오기
     public List<Follow> getResponseMember(Long memberId){
         String jpql = "SELECT f FROM Follow f WHERE f.responseMember.id = :memberId";

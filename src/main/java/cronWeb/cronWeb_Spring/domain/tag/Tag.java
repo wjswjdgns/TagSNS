@@ -1,9 +1,7 @@
 package cronWeb.cronWeb_Spring.domain.tag;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import cronWeb.cronWeb_Spring.domain.member.Member;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,5 +14,10 @@ public class Tag {
     private Long id;
     private String tagName;
 
-    // mapping post id list, notice list,
+    @OneToOne(mappedBy = "tag",fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    private TagInfo tagInfo;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="UserId")
+    private Member member;
 }

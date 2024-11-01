@@ -1,25 +1,26 @@
 package cronWeb.cronWeb_Spring.domain;
 
 import cronWeb.cronWeb_Spring.domain.member.Member;
+import cronWeb.cronWeb_Spring.domain.post.Post;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Getter @Setter
-public class Follow {
-
+public class Like {
     @Id
     @GeneratedValue
-    @Column(name="FollowId")
+    @Column(name="LikeId")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "requestMember_id")
-    private Member requestMember; // 팔로워
+    private LocalDateTime createAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "responseMember_id")
-    private Member responseMember; // 팔로잉
+    private Member member;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Post post;
 
 }
