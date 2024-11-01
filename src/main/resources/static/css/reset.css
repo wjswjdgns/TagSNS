@@ -1,0 +1,65 @@
+/* 모든 요소에 대한 기본 스타일 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 기본 폰트 및 배경 색상 초기화 */
+body {
+    font-family: sans-serif;
+    line-height: 1.5;
+    background-color: #fff;
+}
+
+/* 리스트 및 테이블 초기화 */
+ul, ol {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* 링크 스타일 초기화 */
+a {
+    text-decoration: none;
+    color: inherit; /* 상속받은 색상 사용 */
+}
+
+/* 이미지 및 비디오 초기화 */
+img, video {
+    max-width: 100%;
+    height: auto;
+    display: block; /* 이미지 주변의 공백 제거 */
+}
+
+/* 기본 입력 요소 스타일 초기화 */
+input, textarea, select {
+    font-family: inherit; /* 부모 요소의 폰트 상속 */
+    font-size: inherit; /* 부모 요소의 폰트 크기 상속 */
+}
+
+/* 버튼 초기화 */
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* 기본적인 헤더 및 섹션 스타일 초기화 */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+    margin-bottom: 0.5em;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+/* 브라우저 기본 스타일 초기화 */
+blockquote {
+    margin: 0;
+    padding: 0;
+}

@@ -10,7 +10,11 @@ public class HelloController {
 
     @GetMapping("hello")
     public String Hello(Model model){
-        model.addAttribute("data", "StringValue");
-        return "hello";
+        return "base/index";
+    }
+
+    @GetMapping("signup")
+    public String signup(Model model){
+        return "base/signup";
     }
 }

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Square:wght@400;700&display=swap" rel="stylesheet"> <!-- 나눔스퀘어 링크 추가 -->
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Sign Up</title>
+</head>
+<body>
+<div class="contain">
+    <header>
+        <h1>TagRoom #</h1> <!-- 페이지 제목 -->
+    </header>
+    <main>
+        <h2>회원가입을 해주세요 📝</h2> <!-- 설명 제목 -->
+
+        <div class="input-group">
+            <label for="user-id">ID</label>
+            <input type="text" id="user-id" placeholder="Enter your ID" required>
+        </div>
+
+        <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Create a password" required>
+        </div>
+
+        <div class="input-group">
+            <label for="nickname">Nickname</label>
+            <input type="text" id="nickname" placeholder="Choose a nickname" required>
+        </div>
+
+        <div class="input-group">
+            <label for="unique-id">Unique ID</label>
+            <input type="text" id="unique-id" placeholder="Enter a unique ID" required>
+        </div>
+
+        <button class="signup-button">가입 완료</button> <!-- 회원가입 버튼 -->
+        <p class="login-link">이미 계정이 있으신가요? <a href="hello">로그인</a></p> <!-- 로그인 링크 -->
+    </main>
+</div>
+<script src="/js/script.js"></script>
+</body>
+</html>

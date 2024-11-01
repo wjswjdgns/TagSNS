@@ -1,0 +1,91 @@
+/* 기본 레이아웃 및 스타일 재사용 */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa;
+    font-family: 'Nanum Square', sans-serif;
+}
+
+.contain {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+    padding: 20px;
+}
+
+/* 헤더 스타일 */
+header h1 {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+/* 제목 스타일 */
+main h2 {
+    font-size: 1.5em;
+    line-height: 1.4;
+    font-weight: normal;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+
+main h2 {
+    font-size: 1.2em; /* 제목 크기를 작게 설정 */
+}
+.login-link {
+    margin-top: 20px; /* 로그인 링크에 추가 여백 */
+}
+
+/* 입력 그룹 스타일 */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+/* 회원가입 버튼 스타일 */
+.signup-button {
+    width: 100%;
+    padding: 12px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    margin-top: 15px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* 기존 계정 버튼 스타일 */
+.existing-account {
+    width: 100%;
+    padding: 12px;
+    background-color: #e0e0e0;
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 10px;
+}
