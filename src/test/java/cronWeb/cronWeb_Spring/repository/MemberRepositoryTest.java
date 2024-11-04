@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -27,10 +28,7 @@ class MemberRepositoryTest {
     public void testMember() throws Exception{
 
         //given
-        Member member = new Member();
-        member.setName("memberA");
-        member.setPassword("123");
-        member.setPersonal("testA");
+        Member member = new Member("memberA", "123", "testA", LocalDateTime.now());
 
         //when
         Long saveId = memberRepository.save(member);

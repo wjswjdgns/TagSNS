@@ -26,17 +26,13 @@ header h1 {
 
 /* 제목 스타일 */
 main h2 {
-    font-size: 1.5em;
+    font-size: 1.2em; /* 제목 크기를 작게 설정 */
     line-height: 1.4;
     font-weight: normal;
     color: #333;
     margin-bottom: 30px;
 }
 
-
-main h2 {
-    font-size: 1.2em; /* 제목 크기를 작게 설정 */
-}
 .login-link {
     margin-top: 20px; /* 로그인 링크에 추가 여백 */
 }
@@ -89,3 +85,124 @@ main h2 {
     cursor: pointer;
     margin-top: 10px;
 }
+
+/* ---------------- New Styles for SNS Main Screen ---------------- */
+
+/* 전체 배경 */
+body {
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* 컨테이너 */
+.container {
+    max-width: 400px;
+    width: 100%;
+}
+
+/* 상단 탐색 및 검색 */
+.header {
+    text-align: left;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    background: transparent;
+    flex: 1;
+    padding-left: 10px;
+}
+
+/* 카드 스타일 */
+.card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card .user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.card .user-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.card .user-info .username {
+    font-weight: bold;
+    color: #333;
+}
+
+.card .post-text {
+    color: #333;
+    margin: 10px 0;
+}
+
+.card .hashtags {
+    color: #888;
+    font-size: 0.9em;
+}
+
+.card .post-image {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.card .actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.actions .likes-comments {
+    color: #333;
+}
+
+/* 하단 탐색 */
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 400px;
+    width: 100%;
+}
+
+.navigation .nav-item {
+    color: #888;
+    font-size: 1.2em;
+}
+
+
+
+
+

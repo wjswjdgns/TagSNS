@@ -8,7 +8,6 @@ import cronWeb.cronWeb_Spring.domain.post.Post;
 import cronWeb.cronWeb_Spring.domain.tag.Tag;
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -17,7 +16,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Getter @Setter
+@Getter
 public class Member {
 
     @Id
@@ -29,10 +28,20 @@ public class Member {
     private String personal; // 회원의 고유 ID
     private LocalDateTime createAt; // 생성일
 
-
+    public Member(String name, String password, String personal, LocalDateTime createAt) {
+        this.name = name;
+        this.password = password;
+        this.personal = personal;
+        this.createAt = createAt;
+    }
 
     @OneToOne(mappedBy = "member", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private MemberInfo memberInfo;
+
+    public void addMemberInfo(MemberInfo memberInfo){
+        this.memberInfo = memberInfo;
+        memberInfo.setMember(this);
+    }
 
     // 팔로우
     @OneToMany(mappedBy = "requestMember", cascade = CascadeType.REMOVE, orphanRemoval = true)

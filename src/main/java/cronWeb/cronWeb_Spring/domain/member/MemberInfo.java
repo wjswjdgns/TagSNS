@@ -14,6 +14,7 @@ public class MemberInfo {
     @GeneratedValue
     @Column(name="MemberInfoId")
     private Long id;
+
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="UserId")
     private Member member;
