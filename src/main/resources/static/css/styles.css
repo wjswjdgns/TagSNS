@@ -202,6 +202,13 @@ body {
     font-size: 1.2em;
 }
 
+/* 에러 메시지 스타일 */
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+    font-family: 'Nanum Square', sans-serif;
+}
 
 
 

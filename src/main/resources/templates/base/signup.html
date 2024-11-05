@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,29 +16,31 @@
         <main>
             <h2>회원가입을 해주세요 📝</h2> <!-- 설명 제목 -->
 
-            <form action="new/member" method="post">
                 <div class="input-group">
                     <label for="user-id">ID</label>
                     <input type="text" id="user-id" placeholder="Enter your ID" required>
+                    <p class="error-message" id="user-id-error">ssss</p>
                 </div>
 
                 <div class="input-group">
                     <label for="password">Password</label>
                     <input type="password" id="password" placeholder="Create a password" required>
+                    <p class="error-message" id="password-error">ssss</p>
                 </div>
 
                 <div class="input-group">
                     <label for="nickname">Nickname</label>
                     <input type="text" id="nickname" placeholder="Choose a nickname" required>
+                    <p class="error-message" id="nickname-error">ssss</p>
                 </div>
 
                 <div class="input-group">
                     <label for="unique-id">Unique ID</label>
                     <input type="text" id="unique-id" placeholder="Enter a unique ID" required>
+                    <p class="error-message" id="unique-id-error">ssss</p>
                 </div>
 
-                <input type="submit" class="signup-button"> <!-- 회원가입 버튼 -->
-            </form>
+                <button onclick="signup()" class="signup-button">제출</button> <!-- 회원가입 버튼 -->
             <p class="login-link">이미 계정이 있으신가요? <a href="hello">로그인</a></p> <!-- 로그인 링크 -->
         </main>
     </div>
