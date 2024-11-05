@@ -13,6 +13,7 @@ function login() {
 }
 
 
+// 서버로 유효성 검사
 function signup(){
     // 필드값들을 변수로 지정
 
@@ -55,15 +56,19 @@ function signup(){
         })
         .catch( error => {
            if (error.fieldMessages) {
-               // 필드별 오류 메시지를 개별적으로 출력
-               for (const [field, message] of Object.entries(error.fieldMessages)) {
-                   console.error(`${field}: ${message}`);
-               }
+               SignUpErrorMessages(error.fieldMessages);
            } else {
                console.error("Error:", error.message);
            }
         });
 
-    // 답변에 따른 200->300 ,400,500 처리
 
+}
+
+function SignUpErrorMessages(errorData){
+    // 에러 메시지를 각 필드 아래에 표시
+    document.getElementById('user-id-error').textContent = errorData.name || '';
+    document.getElementById('password-error').textContent = errorData.password || '';
+    document.getElementById('nickname-error').textContent = errorData.nickname || '';
+    document.getElementById('unique-id-error').textContent = errorData.uniqueId || '';
 }
