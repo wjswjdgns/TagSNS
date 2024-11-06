@@ -56,7 +56,6 @@ public class MemberRepository {
     /**
      *  유효성 검사
      * **/
-
     // 고유 ID 검사
     public boolean existsByUniqueId(String uniqueId){
         String jpql = "SELECT COUNT(*) FROM Member m WHERE m.personal = :uniqueId";
