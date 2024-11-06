@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor //lombok 기능
 public class MemberController {
-
     private final MemberService memberService;
 
 }

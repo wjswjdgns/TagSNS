@@ -28,6 +28,11 @@ public class Member {
     private String personal; // 회원의 고유 ID
     private LocalDateTime createAt; // 생성일
 
+    // 기본 생성자 추가
+    protected Member(){
+
+    }
+
     public Member(String name, String password, String personal, LocalDateTime createAt) {
         this.name = name;
         this.password = password;

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 // 회원 관련 데이터 베이스
 @Repository
@@ -23,6 +24,15 @@ public class MemberRepository {
     public Long save(Member member){
         em.persist(member);
         return member.getId();
+    }
+
+    // 아이디 찾기
+    public Optional<Member> findByUserId(String name){
+        String jpql = "SELECT m FROM Member m WHERE m.name = :Username";
+        List<Member> members = em.createQuery(jpql, Member.class)
+                .setParameter("Username", name)
+                .getResultList();
+        return members.isEmpty() ? Optional.empty() : Optional.of(members.get(0));
     }
 
 

@@ -2,11 +2,12 @@ package cronWeb.cronWeb_Spring.service;
 
 import cronWeb.cronWeb_Spring.UserException.DuplicateName;
 import cronWeb.cronWeb_Spring.UserException.DuplicateUniqueId;
+import cronWeb.cronWeb_Spring.UserException.LoginFailure;
 import cronWeb.cronWeb_Spring.UserException.NotMatchPassword;
 import cronWeb.cronWeb_Spring.domain.member.Member;
 import cronWeb.cronWeb_Spring.domain.member.MemberInfo;
 import cronWeb.cronWeb_Spring.dto.request.CreateMemberRequest;
-import cronWeb.cronWeb_Spring.dto.response.CreateMemberResponse;
+import cronWeb.cronWeb_Spring.dto.request.LoginMemberRequest;
 import cronWeb.cronWeb_Spring.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataAccessException;
@@ -48,9 +49,24 @@ public class MemberService {
             return memberId;
         }
         catch(DataAccessException e){
-            e.printStackTrace();
+            //e.printStackTrace();
             // 데이터베이스 오류 처리
             throw new RuntimeException("회원 가입 중 오류가 발생했습니다.");
+        }
+    }
+
+    public Long login(LoginMemberRequest member){
+        try{
+            Long memberId = memberRepository.findByUserId(member.getName())
+                    .filter(m -> m.getPassword().equals(member.getPassword()))
+                    .map(Member::getId)
+                    .orElseThrow(() -> new LoginFailure("아이디 또는 패스워드를 확인해주세요"));
+
+            return memberId;
+        }
+        catch (DataAccessException e){
+            System.err.println("데이터 접근 중 오류 발생: " + e.getMessage());
+            throw new RuntimeException("로그인 정보를 불러올 수 없습니다.");
         }
     }
 

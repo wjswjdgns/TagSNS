@@ -32,37 +32,22 @@ function signup(){
             },
             body: JSON.stringify(data)
         })
-        .then(response => {
-                  if (response.ok) { // 200-299 범위의 상태 코드
-                      return response.json(); // 성공적인 응답
-                  }
-                  else {
-                      return response.json().then(errorData => {
-                          if(errorData.message){
-                            if(typeof errorData.message === "string"){
-                                throw new Error(errorData.message || "Internal Server Error"); // 오류 발생
-                            }else if (typeof errorData.message === "object") {
-                                // 필드별 메시지를 객체로 포함하여 에러를 throw
-                                const error = new Error("Validation errors occurred");
-                                error.fieldMessages = errorData.message; // 필드별 에러 메시지를 추가
-                                throw error;
-                             }
-                          }
-                      });
-                  }
-              })
+        .then(response => response.json())
         .then(data => {
-            console.log("Success:", data.message);
+            if (data.status === 400){
+                // 400번 상태일 경우에는 에러 메시지를 처리
+                SignUpErrorMessages(data.errorData);
+            }
+            else if(data.status === 500){
+                console.log(data.message);
+            }
+            else{
+                console.log("Success:", data.message);
+            }
         })
         .catch( error => {
-           if (error.fieldMessages) {
-               SignUpErrorMessages(error.fieldMessages);
-           } else {
-               console.error("Error:", error.message);
-           }
+               console.error("Error:", error);
         });
-
-
 }
 
 function SignUpErrorMessages(errorData){

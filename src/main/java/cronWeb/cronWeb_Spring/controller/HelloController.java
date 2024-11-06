@@ -9,14 +9,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HelloController {
 
-    @GetMapping("hello")
-    public String Hello(Model model){
+    @GetMapping("login")
+    public String start(Model model){
         return "base/index";
     }
 
     @GetMapping("signup")
     public String signup(Model model){
-        model.addAttribute("CreateMemberRequest", new CreateMemberRequest());
         return "base/signup";
     }
 
