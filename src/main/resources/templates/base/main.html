@@ -8,21 +8,76 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/styles.css">
-
+    <link rel="stylesheet" href="/css/card.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/searchbar.css">
 </head>
 <body>
 
-<div class="container">
-    <!-- Header Section -->
-    <div class="header">Discover</div>
 
-    <!-- Search Bar -->
-    <div class="search-bar">
-        <i class="fas fa-search"></i>
-        <input type="text" placeholder="Search">
+<div class="left-container">
+    <div class="card">
+
     </div>
+</div>
+
+<!-- 카드 레이아웃 -->
+
+<div class="left-container">
+<!--    &lt;!&ndash; Header Section &ndash;&gt;-->
+<!--    <div class="header">Discover</div>-->
+
+<!--    &lt;!&ndash; Search Bar &ndash;&gt;-->
+
 
     <!-- Post Cards -->
+    <div class="card">
+        <div class="user-info">
+            <img src="user1.jpg" alt="User profile picture">
+            <div class="username">Alan Smith</div>
+        </div>
+        <div class="post-text">Amazing holiday starts on a perfect paradise island in Thailand!</div>
+        <div class="hashtags">#holiday, #thailand</div>
+        <img src="post-image1.jpg" class="post-image" alt="Post image">
+        <div class="actions">
+            <div class="likes-comments">
+                <i class="fas fa-heart"></i> 128 <i class="fas fa-comment"></i> 32
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="user-info">
+            <img src="user1.jpg" alt="User profile picture">
+            <div class="username">Alan Smith</div>
+        </div>
+        <div class="post-text">Amazing holiday starts on a perfect paradise island in Thailand!</div>
+        <div class="hashtags">#holiday, #thailand</div>
+        <img src="post-image1.jpg" class="post-image" alt="Post image">
+        <div class="actions">
+            <div class="likes-comments">
+                <i class="fas fa-heart"></i> 128 <i class="fas fa-comment"></i> 32
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card">
+        <div class="user-info">
+            <img src="user1.jpg" alt="User profile picture">
+            <div class="username">Alan Smith</div>
+        </div>
+        <div class="post-text">Amazing holiday starts on a perfect paradise island in Thailand!</div>
+        <div class="hashtags">#holiday, #thailand</div>
+        <img src="post-image1.jpg" class="post-image" alt="Post image">
+        <div class="actions">
+            <div class="likes-comments">
+                <i class="fas fa-heart"></i> 128 <i class="fas fa-comment"></i> 32
+            </div>
+        </div>
+    </div>
+
+
     <div class="card">
         <div class="user-info">
             <img src="user1.jpg" alt="User profile picture">
@@ -48,14 +103,42 @@
     </div>
 </div>
 
-<!-- Navigation Bar -->
-<div class="navigation">
-    <div class="nav-item"><i class="fas fa-home"></i> Home</div>
-    <div class="nav-item"><i class="fas fa-video"></i> Live</div>
-    <div class="nav-item"><i class="fas fa-comments"></i> Chats</div>
-    <div class="nav-item"><i class="fas fa-bell"></i> Notifications</div>
-    <div class="nav-item"><i class="fas fa-user"></i> Profile</div>
+<div class="left-container">
+    <div class="card">
+        <div class="module-container">
+            <!-- 사용자 목록 -->
+            <div class="user-section">
+                <h2>사용자</h2>
+                <div class="user-list">
+                    <button onclick="toggleSelection(this)" class="user-btn">Alan Smith</button>
+                    <button onclick="toggleSelection(this)" class="user-btn">Jason Smith</button>
+                    <button onclick="toggleSelection(this)" class="user-btn">Emma Brown</button>
+                </div>
+            </div>
+
+            <!-- 태그 목록 -->
+            <div class="tag-section">
+                <h2>태그</h2>
+                <div class="tag-list">
+                    <button onclick="toggleSelection(this)" class="tag-btn">#holiday</button>
+                    <button onclick="toggleSelection(this)" class="tag-btn">#travel</button>
+                    <button onclick="toggleSelection(this)" class="tag-btn">#photography</button>
+                    <button onclick="toggleSelection(this)" class="tag-btn">#nature</button>
+                    <button onclick="toggleSelection(this)" class="tag-btn">#fitness</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search">
+        </div>
+    </div>
 </div>
+
+
 
 </body>
 </html>
