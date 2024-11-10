@@ -1,4 +1,4 @@
-/* 중앙 컨테이너 스타일 */
+/* 중앙 컨테이너 */
 .mid-container {
     width: 100%;
     min-width: 300px;
@@ -9,14 +9,34 @@
 
 /* 왼쪽 컨테이너 스타일 */
 .left-container {
-    max-width: 480px;
+    max-width: 360px;
+    min-width: 300px;
+    width: 100%;
+    padding: 10px;
+    height: 100%; /* 고정 높이 설정 */
+}
+
+/* 메인 콘텐츠 컨테이너 */
+.main-container {
+    max-width: 600px;
     min-width: 300px;
     width: 100%;
     padding: 10px;
     height: 100%; /* 고정 높이 설정 */
     overflow-y: auto; /* 세로 스크롤 가능하게 설정 */
-    /*border: 1px solid #ddd;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    background-color: #fff;*/
 }
+
+/*Activate 영역*/
+.activate-container{
+    padding: 10px;
+    display : flex;
+    height:100%;
+    border : 1px solid #f1f1f1;
+}
+
+/* 네비게이션 컨테이너 */
+.nav-container {
+    padding: 10px;
+    height: 100%; /* 고정 높이 설정 */
+}
+

@@ -11,133 +11,187 @@
     <link rel="stylesheet" href="/css/card.css">
     <link rel="stylesheet" href="/css/layout.css">
     <link rel="stylesheet" href="/css/searchbar.css">
+    <link rel="stylesheet" href="/css/sidebar.css">
+    <link rel="stylesheet" href="/css/sub.css">
 </head>
 <body>
 
 
-<div class="left-container">
-    <div class="card">
-
+<div class="nav-container">
+    <div class="sidebar">
+        <div class="profile-section">
+            <img src="profile-picture.jpg" alt="Profile Picture">
+            <div class="profile-info">
+                <p>Gavin Huff</p>
+                <span>UI/UX Designer</span>
+            </div>
+        </div>
+        <ul class="menu-list">
+            <li>Activity <span class="badge">2</span></li>
+            <li>My Shots</li>
+            <li>Bookmarks</li>
+            <li>Messages <span class="badge">14</span></li>
+            <li>Subscription</li>
+            <li>Stats</li>
+        </ul>
+        <div class="settings-section">
+            <p>Settings</p>
+            <p>Log out</p>
+        </div>
     </div>
 </div>
 
 <!-- 카드 레이아웃 -->
-
-<div class="left-container">
-<!--    &lt;!&ndash; Header Section &ndash;&gt;-->
-<!--    <div class="header">Discover</div>-->
-
-<!--    &lt;!&ndash; Search Bar &ndash;&gt;-->
-
-
-    <!-- Post Cards -->
-    <div class="card">
-        <div class="user-info">
-            <img src="user1.jpg" alt="User profile picture">
-            <div class="username">Alan Smith</div>
-        </div>
-        <div class="post-text">Amazing holiday starts on a perfect paradise island in Thailand!</div>
-        <div class="hashtags">#holiday, #thailand</div>
-        <img src="post-image1.jpg" class="post-image" alt="Post image">
-        <div class="actions">
-            <div class="likes-comments">
-                <i class="fas fa-heart"></i> 128 <i class="fas fa-comment"></i> 32
+<div class="activate-container">
+    <div class="main-container">
+        <div class="card">
+            <div class="user-info">
+                <img src="user1.jpg" alt="User profile picture">
+                <div class="username">Alan Smith</div>
             </div>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="user-info">
-            <img src="user1.jpg" alt="User profile picture">
-            <div class="username">Alan Smith</div>
-        </div>
-        <div class="post-text">Amazing holiday starts on a perfect paradise island in Thailand!</div>
-        <div class="hashtags">#holiday, #thailand</div>
-        <img src="post-image1.jpg" class="post-image" alt="Post image">
-        <div class="actions">
-            <div class="likes-comments">
-                <i class="fas fa-heart"></i> 128 <i class="fas fa-comment"></i> 32
-            </div>
-        </div>
-    </div>
-
-
-    <div class="card">
-        <div class="user-info">
-            <img src="user1.jpg" alt="User profile picture">
-            <div class="username">Alan Smith</div>
-        </div>
-        <div class="post-text">Amazing holiday starts on a perfect paradise island in Thailand!</div>
-        <div class="hashtags">#holiday, #thailand</div>
-        <img src="post-image1.jpg" class="post-image" alt="Post image">
-        <div class="actions">
-            <div class="likes-comments">
-                <i class="fas fa-heart"></i> 128 <i class="fas fa-comment"></i> 32
-            </div>
-        </div>
-    </div>
-
-
-    <div class="card">
-        <div class="user-info">
-            <img src="user1.jpg" alt="User profile picture">
-            <div class="username">Alan Smith</div>
-        </div>
-        <div class="post-text">Amazing holiday starts on a perfect paradise island in Thailand!</div>
-        <div class="hashtags">#holiday, #thailand</div>
-        <img src="post-image1.jpg" class="post-image" alt="Post image">
-        <div class="actions">
-            <div class="likes-comments">
-                <i class="fas fa-heart"></i> 128 <i class="fas fa-comment"></i> 32
-            </div>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="user-info">
-            <img src="user2.jpg" alt="User profile picture">
-            <div class="username">Jason Smith</div>
-        </div>
-        <div class="post-text">Can’t wait for my amazing holiday starts on a perfect paradise island in Thailand next week!</div>
-        <div class="hashtags">#holiday, #thailand</div>
-    </div>
-</div>
-
-<div class="left-container">
-    <div class="card">
-        <div class="module-container">
-            <!-- 사용자 목록 -->
-            <div class="user-section">
-                <h2>사용자</h2>
-                <div class="user-list">
-                    <button onclick="toggleSelection(this)" class="user-btn">Alan Smith</button>
-                    <button onclick="toggleSelection(this)" class="user-btn">Jason Smith</button>
-                    <button onclick="toggleSelection(this)" class="user-btn">Emma Brown</button>
-                </div>
-            </div>
-
-            <!-- 태그 목록 -->
-            <div class="tag-section">
-                <h2>태그</h2>
-                <div class="tag-list">
-                    <button onclick="toggleSelection(this)" class="tag-btn">#holiday</button>
-                    <button onclick="toggleSelection(this)" class="tag-btn">#travel</button>
-                    <button onclick="toggleSelection(this)" class="tag-btn">#photography</button>
-                    <button onclick="toggleSelection(this)" class="tag-btn">#nature</button>
-                    <button onclick="toggleSelection(this)" class="tag-btn">#fitness</button>
+            <div class="post-text">Amazing holiday starts on a perfect paradise island in Thailand!</div>
+            <div class="hashtags">#holiday, #thailand</div>
+            <img src="post-image1.jpg" class="post-image" alt="Post image">
+            <div class="actions">
+                <div class="likes-comments">
+                    <i class="fas fa-heart"></i> 128 <i class="fas fa-comment"></i> 32
                 </div>
             </div>
         </div>
+        <div class="card">
+            <div class="user-info">
+                <img src="user1.jpg" alt="User profile picture">
+                <div class="username">Alan Smith</div>
+            </div>
+            <div class="post-text">Amazing holiday starts on a perfect paradise island in Thailand!</div>
+            <div class="hashtags">#holiday, #thailand</div>
+            <img src="post-image1.jpg" class="post-image" alt="Post image">
+            <div class="actions">
+                <div class="likes-comments">
+                    <i class="fas fa-heart"></i> 128 <i class="fas fa-comment"></i> 32
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="user-info">
+                <img src="user1.jpg" alt="User profile picture">
+                <div class="username">Alan Smith</div>
+            </div>
+            <div class="post-text">Amazing holiday starts on a perfect paradise island in Thailand!</div>
+            <div class="hashtags">#holiday, #thailand</div>
+            <img src="post-image1.jpg" class="post-image" alt="Post image">
+            <div class="actions">
+                <div class="likes-comments">
+                    <i class="fas fa-heart"></i> 128 <i class="fas fa-comment"></i> 32
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="user-info">
+                <img src="user1.jpg" alt="User profile picture">
+                <div class="username">Alan Smith</div>
+            </div>
+            <div class="post-text">Amazing holiday starts on a perfect paradise island in Thailand!</div>
+            <div class="hashtags">#holiday, #thailand</div>
+            <img src="post-image1.jpg" class="post-image" alt="Post image">
+            <div class="actions">
+                <div class="likes-comments">
+                    <i class="fas fa-heart"></i> 128 <i class="fas fa-comment"></i> 32
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="user-info">
+                <img src="user2.jpg" alt="User profile picture">
+                <div class="username">Jason Smith</div>
+            </div>
+            <div class="post-text">Can’t wait for my amazing holiday starts on a perfect paradise island in Thailand next week!</div>
+            <div class="hashtags">#holiday, #thailand</div>
+        </div>
     </div>
 
-    <div class="card">
+    <div class="left-container">
         <div class="search-bar">
             <i class="fas fa-search"></i>
             <input type="text" placeholder="Search">
         </div>
+
+        <div class="subLayout">
+            <!-- 사용자 목록 -->
+            <div class="sub-section">
+                <h1>Tag List</h1>
+                <div class="sub-content">
+                    <h1>사용자</h1>
+                    <button onclick="toggleSelection(this)" class="user-btn">Alan Smith</button>
+                    <button onclick="toggleSelection(this)" class="user-btn">Jason Smith</button>
+                    <button onclick="toggleSelection(this)" class="user-btn">Emma Brown</button>
+                </div>
+                <div class="sub-content">
+                    <h1>태그</h1>
+                    <button onclick="toggleSelection(this)" class="user-btn">#Alan Smith</button>
+                    <button onclick="toggleSelection(this)" class="user-btn">#Jason Smith</button>
+                    <button onclick="toggleSelection(this)" class="user-btn">#Emma</button>
+                    <button onclick="toggleSelection(this)" class="user-btn">#Alan Smith</button>
+                    <button onclick="toggleSelection(this)" class="user-btn">#Jason</button>
+                    <button onclick="toggleSelection(this)" class="user-btn">#Emma Brown</button>
+                    <button onclick="toggleSelection(this)" class="user-btn">#Alan Smith</button>
+                    <button onclick="toggleSelection(this)" class="user-btn">#Jason Smith</button>
+                    <button onclick="toggleSelection(this)" class="user-btn">#Emma</button>
+                    <button onclick="toggleSelection(this)" class="user-btn">#Alan</button>
+                    <button onclick="toggleSelection(this)" class="user-btn">#Jason</button>
+                    <button onclick="toggleSelection(this)" class="user-btn">#Emma</button>
+                    <button onclick="toggleSelection(this)" class="user-btn">#Alan Smith</button>
+                    <button onclick="toggleSelection(this)" class="user-btn">#Jason</button>
+                    <button onclick="toggleSelection(this)" class="user-btn">#Emma Brown</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="subLayout">
+            <!-- 사용자 목록 -->
+            <div class="sub-section">
+                <h1>Explore</h1>
+                <div class="sub-content">
+                    <div class="tag-item">
+                        <img src="profile1.jpg" alt="Profile 1" class="profile-pic">
+                        <div class="tag-info">
+                            <span class="tag-name">#Alan Smith</span>
+                            <span class="tag-id">@Alan_123</span>
+                        </div>
+                        <button class="select-button">Select</button>
+                    </div>
+                    <div class="tag-item">
+                        <img src="profile1.jpg" alt="Profile 1" class="profile-pic">
+                        <div class="tag-info">
+                            <span class="tag-name">#Alan Smith</span>
+                            <span class="tag-id">@Alan_123</span>
+                        </div>
+                        <button class="select-button">Select</button>
+                    </div>
+                    <div class="tag-item">
+                        <img src="profile1.jpg" alt="Profile 1" class="profile-pic">
+                        <div class="tag-info">
+                            <span class="tag-name">#Alan Smith</span>
+                            <span class="tag-id">@Alan_123</span>
+                        </div>
+                        <button class="select-button">Select</button>
+                    </div>
+                    <div class="tag-item">
+                        <img src="profile1.jpg" alt="Profile 1" class="profile-pic">
+                        <div class="tag-info">
+                            <span class="tag-name">#Alan Smith</span>
+                            <span class="tag-id">@Alan_123</span>
+                        </div>
+                        <button class="select-button">Select</button>
+                    </div>
+                    <a href="#" class="show-more">Show more</a>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
-
 
 
 </body>

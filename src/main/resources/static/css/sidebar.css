@@ -1,0 +1,90 @@
+/* 사이드바 카드 스타일 */
+
+/* 카드 UI */
+.sidebar {
+    background-color: #333;
+    border-radius: 10px;
+    padding: 20px;
+    color: #fff;
+    width: 220px;
+    display: flex;
+    height:100%;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/**
+사용자 영역
+*/
+.sidebar .profile-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* 사용자 영역 > 프로필 이미지 */
+.sidebar .profile-section img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* 사용자 영역 > 유저 정보 */
+.sidebar .profile-info p {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.sidebar .profile-info span {
+    font-size: 0.9em;
+    color: #bbb;
+}
+
+/**
+메뉴 리스트
+*/
+.sidebar .menu-list {
+    list-style: none;
+}
+
+.sidebar .menu-list li {
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.sidebar .menu-list li:hover {
+    background-color: #444;
+}
+
+/* 메뉴 리스트 > 알림 배지 */
+.menu-list .badge {
+    background-color: #ff3b30;
+    color: #fff;
+    border-radius: 10px;
+    padding: 2px 6px;
+    font-size: 0.8em;
+}
+
+/**
+설정 및 로그아웃 영역
+*/
+.sidebar .settings-section {
+    margin-top: 20px;
+    color: #bbb;
+}
+
+.sidebar .settings-section p {
+    cursor: pointer;
+    padding: 5px 0;
+    transition: color 0.3s;
+}
+
+.sidebar .settings-section p:hover {
+    color: #fff;
+}

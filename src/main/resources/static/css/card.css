@@ -1,18 +1,24 @@
 /* 카드 스타일 */
+
+/*카드 UI*/
 .card {
     background-color: white;
     border-radius: 10px;
     padding: 15px;
-    margin: 20px;
+    margin-bottom: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/**
+사용자 영역
+*/
 .card .user-info {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
 }
 
+/*사용자 영역 > 이미지 (프로필 이미지)*/
 .card .user-info img {
     width: 40px;
     height: 40px;
@@ -20,27 +26,32 @@
     margin-right: 10px;
 }
 
+/*사용자 영역 > 유저 이름 */
 .card .user-info .username {
     font-weight: bold;
     color: #333;
 }
 
+/*카드 본문*/
 .card .post-text {
     color: #333;
     margin: 10px 0;
 }
 
+/*카드 태그 영역*/
 .card .hashtags {
     color: #888;
     font-size: 0.9em;
 }
 
+/*사진 영역*/
 .card .post-image {
     width: 100%;
     border-radius: 10px;
     margin-top: 10px;
 }
 
+/*상호작용 영역*/
 .card .actions {
     display: flex;
     justify-content: space-between;
