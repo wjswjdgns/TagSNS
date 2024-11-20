@@ -37,7 +37,7 @@ function login() {
                 console.log(data.message);
             }
             else{
-                console.log("Success:", data.message);
+                window.location.href = "/main";
                 closeLoginModal(); // 로그인 후 모달 닫기
             }
         })

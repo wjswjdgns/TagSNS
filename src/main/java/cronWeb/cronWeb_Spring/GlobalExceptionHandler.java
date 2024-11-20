@@ -20,7 +20,7 @@ public class GlobalExceptionHandler {
     // DTO 검사 실패시
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ServerResponse> handleValidationExceptions(MethodArgumentNotValidException ex) {
-        Map<String, String> errorData = new HashMap<>();
+        Map<String, String> errorData = new HashMap<>(); // ConcurrentHashMap<>();
         for (FieldError error : ex.getBindingResult().getFieldErrors()) {
             errorData.put(error.getField(), error.getDefaultMessage());
         }

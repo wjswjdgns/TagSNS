@@ -18,11 +18,11 @@ public class HelloController {
     public String signup(Model model){
         return "base/signup";
     }
-
     @GetMapping("main")
     public String main(Model model){
         return "base/main";
     }
+
     @GetMapping("mypage")
     public String mypage(Model model){
         return "base/mypage";
