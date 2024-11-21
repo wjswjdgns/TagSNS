@@ -13,6 +13,28 @@ function closeLoginModal() {
     document.getElementById('login-error').innerText = '';
 }
 
+function logout(){
+    fetch("/logout",{
+        method : "POST",
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 400){
+            console.log(data.message);
+        }
+        else if(data.status === 500){
+            console.log(data.message);
+        }
+        else{
+             window.location.href = "/login";
+        }
+    })
+    .catch( error => {
+           console.error("Error:", error);
+    });
+}
+
+
 function login() {
     // 로그인 처리 로직 (추후 구현)
     const data = {
@@ -46,7 +68,6 @@ function login() {
         });
 
 }
-
 
 // 서버로 유효성 검사
 function signup(){

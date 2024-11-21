@@ -55,6 +55,7 @@ public class MemberService {
         }
     }
 
+    // 로그인
     public Long login(LoginMemberRequest member){
         try{
             Long memberId = memberRepository.findByUserId(member.getName())
@@ -68,6 +69,11 @@ public class MemberService {
             System.err.println("데이터 접근 중 오류 발생: " + e.getMessage());
             throw new RuntimeException("로그인 정보를 불러올 수 없습니다.");
         }
+    }
+
+    // 멤버 찾기
+    public Member getMember(Long memberId){
+        return memberRepository.find(memberId);
     }
 
     /***
