@@ -4,6 +4,7 @@ package cronWeb.cronWeb_Spring.repository;
 import cronWeb.cronWeb_Spring.domain.Follow;
 import cronWeb.cronWeb_Spring.domain.member.Member;
 import cronWeb.cronWeb_Spring.domain.member.MemberInfo;
+import cronWeb.cronWeb_Spring.dto.response.UserResponse;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
@@ -27,8 +28,9 @@ public class MemberRepository {
     }
 
     // 아이디 찾기
+    @Transactional
     public Optional<Member> findByUserId(String name){
-        String jpql = "SELECT m FROM Member m WHERE m.name = :Username";
+        String jpql = "SELECT m FROM Member m JOIN FETCH m.memberInfo WHERE m.name = :Username";
         List<Member> members = em.createQuery(jpql, Member.class)
                 .setParameter("Username", name)
                 .getResultList();
@@ -53,6 +55,13 @@ public class MemberRepository {
     }
 
 
+    // 멤버 1명의 정보 찾기
+    public Member findMemberInfo(String personal){
+        String jpql = "SELECT m FROM Member m JOIN FETCH m.memberInfo WHERE m.personal = :personal";
+        return em.createQuery(jpql, Member.class)
+                .setParameter("personal", personal)
+                .getSingleResult();
+    }
     /**
      *  유효성 검사
      * **/

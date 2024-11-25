@@ -10,7 +10,8 @@ spring:
       ddl-auto: create #테이블을 지우고 다시 생성
     properties:
       hibernate:
-#        show_sql: true
+        enable_lazy_load_no_trans: false
+        show_sql: true
         format_sql: true
 
 

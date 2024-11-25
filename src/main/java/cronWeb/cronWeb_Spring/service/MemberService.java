@@ -10,12 +10,14 @@ import cronWeb.cronWeb_Spring.dto.request.CreateMemberRequest;
 import cronWeb.cronWeb_Spring.dto.request.LoginMemberRequest;
 import cronWeb.cronWeb_Spring.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
 @Service
+@Slf4j
 @RequiredArgsConstructor
 public class MemberService {
 
@@ -24,7 +26,6 @@ public class MemberService {
 
     // 회원 가입
     public Long saveMember(CreateMemberRequest RequestMember){
-
         /**
          * 유효성 검사
          * */
@@ -58,6 +59,7 @@ public class MemberService {
     // 로그인
     public Long login(LoginMemberRequest member){
         try{
+
             Long memberId = memberRepository.findByUserId(member.getName())
                     .filter(m -> m.getPassword().equals(member.getPassword()))
                     .map(Member::getId)

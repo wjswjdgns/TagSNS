@@ -19,11 +19,13 @@
 
 <div class="nav-container">
     <div class="sidebar">
+
+        <!--사용자 정보를 th문으로 불러오기-->
         <div class="profile-section">
-            <img src="profile-picture.jpg" alt="Profile Picture">
+            <img th:src="${#strings.isEmpty(userInfo.profileImg) ? '/img/default_profile.png' : userInfo.profileImg}" alt="Profile Picture">
             <div class="profile-info">
-                <p>Gavin Huff</p>
-                <span>UI/UX Designer</span>
+                <p th:text="${userInfo.nickname}">닉네임이 들어갑니다</p>
+                <span th:text="${userInfo.personal}">고유 ID가 들어갑니다.</span>
             </div>
         </div>
         <ul class="menu-list">
@@ -44,70 +46,7 @@
 <!-- 카드 레이아웃 -->
 <div class="activate-container">
     <div class="main-container">
-        <div class="card">
-            <div class="user-info">
-                <img src="user1.jpg" alt="User profile picture">
-                <div class="username">Alan Smith</div>
-            </div>
-            <div class="post-text">Amazing holiday starts on a perfect paradise island in Thailand!</div>
-            <div class="hashtags">#holiday, #thailand</div>
-            <img src="post-image1.jpg" class="post-image" alt="Post image">
-            <div class="actions">
-                <div class="likes-comments">
-                    <i class="fas fa-heart"></i> 128 <i class="fas fa-comment"></i> 32
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="user-info">
-                <img src="user1.jpg" alt="User profile picture">
-                <div class="username">Alan Smith</div>
-            </div>
-            <div class="post-text">Amazing holiday starts on a perfect paradise island in Thailand!</div>
-            <div class="hashtags">#holiday, #thailand</div>
-            <img src="post-image1.jpg" class="post-image" alt="Post image">
-            <div class="actions">
-                <div class="likes-comments">
-                    <i class="fas fa-heart"></i> 128 <i class="fas fa-comment"></i> 32
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="user-info">
-                <img src="user1.jpg" alt="User profile picture">
-                <div class="username">Alan Smith</div>
-            </div>
-            <div class="post-text">Amazing holiday starts on a perfect paradise island in Thailand!</div>
-            <div class="hashtags">#holiday, #thailand</div>
-            <img src="post-image1.jpg" class="post-image" alt="Post image">
-            <div class="actions">
-                <div class="likes-comments">
-                    <i class="fas fa-heart"></i> 128 <i class="fas fa-comment"></i> 32
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="user-info">
-                <img src="user1.jpg" alt="User profile picture">
-                <div class="username">Alan Smith</div>
-            </div>
-            <div class="post-text">Amazing holiday starts on a perfect paradise island in Thailand!</div>
-            <div class="hashtags">#holiday, #thailand</div>
-            <img src="post-image1.jpg" class="post-image" alt="Post image">
-            <div class="actions">
-                <div class="likes-comments">
-                    <i class="fas fa-heart"></i> 128 <i class="fas fa-comment"></i> 32
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="user-info">
-                <img src="user2.jpg" alt="User profile picture">
-                <div class="username">Jason Smith</div>
-            </div>
-            <div class="post-text">Can’t wait for my amazing holiday starts on a perfect paradise island in Thailand next week!</div>
-            <div class="hashtags">#holiday, #thailand</div>
-        </div>
+        <div th:replace="~{fragments/card :: user-post}"></div>
     </div>
 
     <div class="left-container">
@@ -150,44 +89,7 @@
 
         <div class="subLayout">
             <!-- 사용자 목록 -->
-            <div class="sub-section">
-                <h1>Explore</h1>
-                <div class="sub-content">
-                    <div class="tag-item">
-                        <img src="profile1.jpg" alt="Profile 1" class="profile-pic">
-                        <div class="tag-info">
-                            <span class="tag-name">#Alan Smith</span>
-                            <span class="tag-id">@Alan_123</span>
-                        </div>
-                        <button class="select-button">Select</button>
-                    </div>
-                    <div class="tag-item">
-                        <img src="profile1.jpg" alt="Profile 1" class="profile-pic">
-                        <div class="tag-info">
-                            <span class="tag-name">#Alan Smith</span>
-                            <span class="tag-id">@Alan_123</span>
-                        </div>
-                        <button class="select-button">Select</button>
-                    </div>
-                    <div class="tag-item">
-                        <img src="profile1.jpg" alt="Profile 1" class="profile-pic">
-                        <div class="tag-info">
-                            <span class="tag-name">#Alan Smith</span>
-                            <span class="tag-id">@Alan_123</span>
-                        </div>
-                        <button class="select-button">Select</button>
-                    </div>
-                    <div class="tag-item">
-                        <img src="profile1.jpg" alt="Profile 1" class="profile-pic">
-                        <div class="tag-info">
-                            <span class="tag-name">#Alan Smith</span>
-                            <span class="tag-id">@Alan_123</span>
-                        </div>
-                        <button class="select-button">Select</button>
-                    </div>
-                    <a href="#" class="show-more">Show more</a>
-                </div>
-            </div>
+            <div th:replace="~{fragments/explore :: user-explore}"></div>
         </div>
 
     </div>

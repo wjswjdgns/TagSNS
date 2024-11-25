@@ -1,5 +1,6 @@
 package cronWeb.cronWeb_Spring.domain.member;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import cronWeb.cronWeb_Spring.domain.Follow;
 import cronWeb.cronWeb_Spring.domain.Like;
 import cronWeb.cronWeb_Spring.domain.Notice;
@@ -41,6 +42,7 @@ public class Member {
     }
 
     @OneToOne(mappedBy = "member", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @JsonIgnore
     private MemberInfo memberInfo;
 
     public void addMemberInfo(MemberInfo memberInfo){
