@@ -8,7 +8,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 @Entity
 @Getter
@@ -25,6 +27,7 @@ public class Post {
     private LocalDateTime createAt;
     private LocalDateTime updateAt;
 
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="UserId")
     private Member member;
@@ -37,5 +40,19 @@ public class Post {
 
     @OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE)
     private Set<Retwit> retwits = new HashSet<>();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "parent_id")
+    private Post parent; // 부모 게시물 (댓글일 경우 해당)
+
+    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL)
+    private List<Post> comments = new ArrayList<>(); // 자식 댓글 리스트
+
+
+    // 댓글 추가하기 메서드
+    public void addComment(Post comment) {
+        comments.add(comment);
+        comment.setParent(this);
+    }
 
 }

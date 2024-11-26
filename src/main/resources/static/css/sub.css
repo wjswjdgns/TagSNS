@@ -5,7 +5,6 @@
     width: 100%;
     flex-direction: column;
     justify-content: space-between;
-    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
     border-left : 1px solid #f1f1f1;
 }
 
@@ -28,84 +27,4 @@
     font-weight:bold;
 }
 
-/* 작은 크기의 버튼 스타일 */
-.sub-section .sub-content .user-btn {
-    display: inline-block; /* 여러 버튼이 한 줄에 나열되도록 설정 */
-    padding: 5px 10px; /* 버튼 크기를 작게 */
-    margin: 3px; /* 버튼 간격 */
-    font-size: 12px; /* 글자 크기 줄이기 */
-    color: #444;
-    background-color: #f9f9f9;
-    border: 1px solid #4CAF50; /* 연관된 사용자와 태그의 테두리 색상 */
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, border-color 0.3s;
-}
 
-.sub-section .sub-content .user-btn:hover {
-    background-color: #e0f7fa;
-    border-color: #00695c; /* hover 시 테두리 색상 변경 */
-}
-
-.sub-section .sub-content .user-btn.selected {
-    background-color: #b2dfdb;
-    border-color: #00796b; /* 선택된 상태의 테두리 색상 */
-    color: #fff;
-}
-
-
-
-.tag-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-
-.tag-info {
-    flex-grow: 1;
-}
-
-.profile-pic {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
-
-.tag-name {
-    font-weight: bold;
-    display: block;
-}
-
-.tag-id {
-    color: #aaa;
-    font-size: 14px;
-}
-
-
-.select-button {
-    background-color: #1da1f2;
-    color: #fff;
-    border: none;
-    border-radius: 20px;
-    padding: 5px 15px;
-    cursor: pointer;
-}
-
-.select-button:hover {
-    background-color: #0a84c1;
-}
-
-.show-more {
-    color: #1da1f2;
-    text-align: center;
-    display: block;
-    margin-top: 10px;
-    text-decoration: none;
-}
-
-.show-more:hover {
-    text-decoration: underline;
-}

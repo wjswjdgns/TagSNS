@@ -13,9 +13,6 @@ public class PostInfo {
     @GeneratedValue
     @Column(name= "PostInfoId")
     private Long id;
-    private Integer postLv; // 포스트 레벨
-    private Integer parentLv; // 부모 레벨
-
     private Integer likeCount; // 좋아요 갯수
     private Integer retwitCount; // 리트윗 갯수
     private Integer commentCount; // 댓글 갯수

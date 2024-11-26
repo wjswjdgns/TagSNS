@@ -6,7 +6,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Square:wght@400;700&display=swap" rel="stylesheet"> <!-- 나눔스퀘어 링크 추가 -->
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/input.css">
     <link rel="stylesheet" href="/css/layout.css">
     <title>Sign Up</title>
 </head>
@@ -41,11 +40,12 @@
                     <input type="text" id="unique-id" placeholder="Enter a unique ID" required>
                     <p class="error-message" id="unique-id-error"></p>
                 </div>
-                <button onclick="signup()" class="signup-button">제출</button> <!-- 회원가입 버튼 -->
+                <button onclick="signup()" class="active-button">제출</button> <!-- 회원가입 버튼 -->
             <p class="login-link">이미 계정이 있으신가요? <a href="login">로그인</a></p> <!-- 로그인 링크 -->
         </main>
     </div>
 
-<script src="/js/script.js"></script>
 </body>
+
+<script th:replace="~{fragments/script :: signup}"></script>
 </html>

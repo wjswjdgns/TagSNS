@@ -1,0 +1,44 @@
+/* 태그 그룹 스타일 */
+.tag-group {
+    margin-top: 15px;
+    text-align: left;
+}
+
+.tag-group h2{
+    display: block;
+    margin-bottom: 5px;
+    font-size: initial;
+    font-weight: bold;
+    color: #333;
+}
+
+.tag-search {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+/* 이미지 추가 버튼 스타일 */
+.image-upload {
+    margin-top: 15px;
+    text-align: left;
+}
+
+.image-upload label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: #007bff;
+    font-size: 1em;
+}
+
+.image-upload label i {
+    font-size: 1.5em;
+}
+
+.image-upload label:hover {
+    color: #0056b3;
+}

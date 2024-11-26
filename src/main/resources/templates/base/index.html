@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/modal.css">
-    <link rel="stylesheet" href="/css/input.css">
     <link rel="stylesheet" href="/css/layout.css">
     <title>Login Screen</title>
     <style>
@@ -22,8 +21,8 @@
     </header>
     <main>
         <h2>Share precious moments<br>on a tag-based SNS<br>with your friends! 👫✨</h2> <!-- Service description -->
-        <button class="signup-button" onclick="location.href='signup'">회원가입</button> <!-- Button text -->
-        <button class="existing-account" onclick="showLoginModal()">이미 계정을 가지고 계신가요?</button> <!-- Button text -->
+        <button class="active-button" onclick="location.href='signup'">회원가입</button> <!-- Button text -->
+        <button class="de-button" onclick="showLoginModal()">이미 계정을 가지고 계신가요?</button> <!-- Button text -->
     </main>
 </div>
 
@@ -45,11 +44,11 @@
             <input type="password" id="login-password" placeholder="Enter your password" required>
         </div>
         <p class="error-message" id="login-error"></p>
-        <button class="signup-button" onclick="login()">로그인</button>
+        <button class="active-button" onclick="login()">로그인</button>
     </div>
 </div>
 
 
-<script src="/js/script.js"></script>
+<script th:replace="~{fragments/script :: login}"></script>
 </body>
 </html>

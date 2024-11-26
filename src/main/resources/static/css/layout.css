@@ -7,11 +7,16 @@
     padding: 10px;
 }
 
-/* 왼쪽 컨테이너 스타일 */
-.left-container {
-    max-width: 360px;
-    min-width: 300px;
-    width: 100%;
+/*Activate 영역*/
+.activate-container{
+    padding: 10px;
+    display : flex;
+    height:100%;
+    border : 1px solid #f1f1f1;
+}
+
+/* 네비게이션 컨테이너 */
+.nav-container {
     padding: 10px;
     height: 100%; /* 고정 높이 설정 */
 }
@@ -26,16 +31,11 @@
     overflow-y: auto; /* 세로 스크롤 가능하게 설정 */
 }
 
-/*Activate 영역*/
-.activate-container{
-    padding: 10px;
-    display : flex;
-    height:100%;
-    border : 1px solid #f1f1f1;
-}
-
-/* 네비게이션 컨테이너 */
-.nav-container {
+/* 서브 컨테이너 스타일 */
+.sub-container {
+    max-width: 360px;
+    min-width: 300px;
+    width: 100%;
     padding: 10px;
     height: 100%; /* 고정 높이 설정 */
 }

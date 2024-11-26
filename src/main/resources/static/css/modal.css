@@ -44,24 +44,20 @@
     display: flex; /* 모달을 보이도록 설정 */
 }
 
-/* 입력 그룹 스타일 */
-.input-group {
-    margin-bottom: 15px;
-    text-align: left;
+
+/* 모달 열릴 때 부드러운 애니메이션 효과 추가 */
+.modal.show {
+    animation: fadeIn 0.3s ease-out; /* 모달 등장 애니메이션 */
 }
 
-.input-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #333;
-}
-
-.input-group input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1em;
-    box-sizing: border-box;
+/* 애니메이션 키프레임 정의 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px); /* 살짝 위에서 시작 */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* 원래 위치 */
+    }
 }
