@@ -33,10 +33,10 @@ public class PostApiController {
     }
 
     // 포스트 받아오기 --> 조건을 주면 그에 맞게 필터되도록
-    @PostMapping
-    public ResponseEntity<PostResponse> getPost(){
+    @PostMapping("search/all")
+    public ResponseEntity<List<PostResponse>> getPost(){
         List<PostResponse> posts = postService.getPosts();
-        return ResponseEntity.status(HttpStatus.CREATED).body((PostResponse) posts);
+        return ResponseEntity.status(HttpStatus.CREATED).body(posts);
     }
 
 

@@ -27,7 +27,6 @@ public class Post {
     private LocalDateTime createAt;
     private LocalDateTime updateAt;
 
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="UserId")
     private Member member;
@@ -53,6 +52,11 @@ public class Post {
     public void addComment(Post comment) {
         comments.add(comment);
         comment.setParent(this);
+    }
+
+    public void addPostInfo(PostInfo postInfo){
+        this.postInfo = postInfo;
+        postInfo.setPost(this);
     }
 
 }

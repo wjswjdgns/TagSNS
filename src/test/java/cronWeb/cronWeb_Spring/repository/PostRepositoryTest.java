@@ -3,6 +3,7 @@ package cronWeb.cronWeb_Spring.repository;
 import cronWeb.cronWeb_Spring.domain.member.Member;
 import cronWeb.cronWeb_Spring.domain.member.MemberInfo;
 import cronWeb.cronWeb_Spring.domain.post.Post;
+import cronWeb.cronWeb_Spring.domain.post.PostInfo;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -12,6 +13,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 @ExtendWith(SpringExtension.class)
@@ -133,6 +135,80 @@ class PostRepositoryTest {
         Assertions.assertThat(postByUser.getId()).isEqualTo(findUser.getId());
         Assertions.assertThat(postByUser.getMemberInfo().getNickname()).isEqualTo(findUser.getMemberInfo().getNickname());
 
+    }
+
+    // 게시물 전체 불러오기
+    @Test
+    @Transactional
+    public void testSearchPost() throws Exception {
+
+        //given
+        Member member = new Member("memberA", "123", "testA", LocalDateTime.now());
+        Long saveId = memberRepository.save(member);
+
+        MemberInfo memberInfo = new MemberInfo();
+        memberInfo.setNickname("hello");
+        memberInfo.setIntroduce("자기소개입니다");
+        memberInfo.setUpdateAt(LocalDateTime.now());
+        memberRepository.saveInfo(memberInfo);
+
+        member.addMemberInfo(memberInfo);
+
+        Post post = new Post();
+        post.setMember(member);
+        post.setContent("테스트합니다");
+        post.setPostLevel(1);
+        post.setCreateAt(LocalDateTime.now());
+        Long postId1 = postRepository.posting(post);
+
+        PostInfo postInfo = new PostInfo();
+        postInfo.setCommentCount(0);
+        postInfo.setLikeCount(0);
+        postInfo.setRetwitCount(0);
+        postRepository.savePostInfo(postId1,postInfo);
+        post.addPostInfo(postInfo);
+
+
+        Post post2 = new Post();
+        post2.setMember(member);
+        post2.setContent("테스트합니다");
+        post2.setPostLevel(1);
+        post2.setCreateAt(LocalDateTime.now());
+        Long postId2 = postRepository.posting(post2);
+
+        PostInfo postInfo2 = new PostInfo();
+        postInfo2.setCommentCount(0);
+        postInfo2.setLikeCount(0);
+        postInfo2.setRetwitCount(0);
+        postRepository.savePostInfo(postId2, postInfo2);
+        post2.addPostInfo(postInfo2);
+
+        Post post3 = new Post();
+        post3.setMember(member);
+        post3.setContent("테스트합니다");
+        post3.setPostLevel(1);
+        post3.setCreateAt(LocalDateTime.now());
+
+        Long postId3 = postRepository.posting(post3);
+
+        PostInfo postInfo3 = new PostInfo();
+        postInfo3.setCommentCount(0);
+        postInfo3.setLikeCount(0);
+        postInfo3.setRetwitCount(0);
+        postRepository.savePostInfo(postId3, postInfo3);
+        post3.addPostInfo(postInfo3);
+
+
+        // when
+        List<Post> byPosts = postRepository.findByPosts();
+
+        for (Post p : byPosts){
+            System.out.println(p.getContent());
+            System.out.println(p.getMember());
+        }
+
+        //then
+        Assertions.assertThat(byPosts.size()).isEqualTo(3);
     }
 
     // 하트 카운트하기

@@ -1,6 +1,7 @@
 package cronWeb.cronWeb_Spring.repository;
 import cronWeb.cronWeb_Spring.domain.member.Member;
 import cronWeb.cronWeb_Spring.domain.post.Post;
+import cronWeb.cronWeb_Spring.domain.post.PostInfo;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import lombok.extern.slf4j.Slf4j;
@@ -23,11 +24,20 @@ public class PostRepository {
         em.persist(post);
         return post.getId();
     }
+
+    // 게시물 Info 저장하기 --->  영속성 컨텍스트에 대해서 구체적으로 정리할 필요가 있다.
+    public Long savePostInfo(Long postId, PostInfo postInfo){
+        em.persist(postInfo);
+        Post post = em.find(Post.class, postId);
+        post.addPostInfo(postInfo);
+        em.persist(post);
+        return postInfo.getId();
+    }
+
     // 게시물 가져오기
     public Post findPost(Long postId){
         return em.find(Post.class, postId);
     }
-
 
     // 포스트의 작성자 보내기
     public Member findPostByUser(Long postId) {
@@ -44,14 +54,12 @@ public class PostRepository {
 
     // 리트윗 하기
 
-
     // 전체 게시물 불러오기 --->  추후에 추천 게시물로 변경하기
     public List<Post> findByPosts(){
-            String jpql = "SELECT p FROM Post p " +
-                    "JOIN FETCH p.postInfo " +
-                    "JOIN FETCH Member m " +
-                    "JOIN FETCH m.memberInfo";
-
+            String jpql = "SELECT DISTINCT p FROM Post p " +
+                    "JOIN FETCH p.postInfo pi " +
+                    "JOIN FETCH p.member m " +
+                    "JOIN FETCH m.memberInfo mi";
         return em.createQuery(jpql, Post.class).getResultList();
     }
 

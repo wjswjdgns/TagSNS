@@ -18,3 +18,25 @@ function logout(){
            console.error("Error:", error);
     });
 }
+
+
+function test(){
+    fetch("/search/all",{
+        method : "POST",
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 400){
+            console.log(data.message);
+        }
+        else if(data.status === 500){
+            console.log(data.message);
+        }
+        else{
+            console.log(data);
+        }
+    })
+    .catch( error => {
+           console.error("Error:", error);
+    });
+}

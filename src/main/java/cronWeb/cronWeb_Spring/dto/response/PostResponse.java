@@ -8,6 +8,8 @@ import java.util.stream.Collectors;
 
 @Data
 public class PostResponse {
+
+    private Long postId; // PostId
     private String nickname; // 작성자 이름
     private String personal; // 고유 ID
     private String profileImg; // 프로파일 이미지
@@ -17,6 +19,7 @@ public class PostResponse {
     private List<PostResponse> comments; // 댓글
 
     public PostResponse(Post post, boolean includeComments) {
+        postId = post.getId();
         nickname = post.getMember().getMemberInfo().getNickname();
         personal = post.getMember().getPersonal();
         profileImg = post.getMember().getMemberInfo().getProfileImg();
