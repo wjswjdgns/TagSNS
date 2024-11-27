@@ -1,6 +1,7 @@
 package cronWeb.cronWeb_Spring.repository;
 
 import cronWeb.cronWeb_Spring.domain.member.Member;
+import cronWeb.cronWeb_Spring.domain.member.MemberInfo;
 import cronWeb.cronWeb_Spring.domain.post.Post;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -98,6 +99,41 @@ class PostRepositoryTest {
         Assertions.assertThat(sendPost.getComments().size()).isEqualTo(2);
     }
 
+
+    // 특정 포스트에서 사용자 불러오기
+    @Test
+    @Transactional
+    public void testGetPostByUser() throws Exception {
+
+        //given
+        Member member = new Member("memberA", "123", "testA", LocalDateTime.now());
+        Long saveId = memberRepository.save(member);
+
+        MemberInfo memberInfo = new MemberInfo();
+        memberInfo.setNickname("hello");
+        memberInfo.setIntroduce("자기소개입니다");
+        memberInfo.setUpdateAt(LocalDateTime.now());
+        memberRepository.saveInfo(memberInfo);
+
+        member.addMemberInfo(memberInfo);
+
+        Post post = new Post();
+        post.setMember(member);
+        post.setContent("테스트합니다");
+        post.setPostLevel(1);
+        post.setCreateAt(LocalDateTime.now());
+
+        Long postId = postRepository.posting(post);
+
+        //when
+        Member postByUser = postRepository.findPostByUser(postId);
+        Member findUser = memberRepository.find(saveId);
+
+        //then
+        Assertions.assertThat(postByUser.getId()).isEqualTo(findUser.getId());
+        Assertions.assertThat(postByUser.getMemberInfo().getNickname()).isEqualTo(findUser.getMemberInfo().getNickname());
+
+    }
 
     // 하트 카운트하기
 

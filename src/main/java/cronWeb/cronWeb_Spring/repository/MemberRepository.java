@@ -27,6 +27,12 @@ public class MemberRepository {
         return member.getId();
     }
 
+    // 멤버의 Info 등록하기
+    public Long saveInfo(MemberInfo memberInfo){
+        em.persist(memberInfo);
+        return memberInfo.getId();
+    }
+
     // 아이디 찾기
     @Transactional
     public Optional<Member> findByUserId(String name){

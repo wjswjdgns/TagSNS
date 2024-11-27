@@ -11,19 +11,38 @@ function closeWriteModal() {
 
  // 글 작성 완료 처리
  function submitPost() {
-     const content = document.getElementById('post-content').value.trim();
      const errorElement = document.getElementById('post-error');
 
-     if (content === '') {
-         errorElement.textContent = '내용을 입력하세요.';
-         return;
-     }
+     // 들어갈 데이터
+     const data = {
+                  content : document.getElementById('post-content').value.trim(),
+              };
 
-     // 서버로 데이터 전송 처리
-     console.log('작성된 내용:', content);
-
-     // 초기화 후 모달 닫기
-     errorElement.textContent = '';
-     closeWriteModal();
+     // json 형태로 전달
+     fetch("/new/post", {
+             method: "POST",
+             headers: {
+                 "Content-Type": "application/json"
+             },
+             body: JSON.stringify(data)
+         })
+         .then(response => response.json())
+         .then(data => {
+             if (data.status === 400){
+                 // 400번 상태일 경우에는 에러 메시지를 처리
+                 console.log(data.errorData);
+             }
+             else if(data.status === 500){
+                 console.log(data.message);
+             }
+             else{
+                 closeWriteModal();
+                 window.location.href = "/main";
+                 console.log("Success:", data.message);
+             }
+         })
+         .catch( error => {
+                console.error("Error:", error);
+         });
  }
 

@@ -1,7 +1,9 @@
 package cronWeb.cronWeb_Spring.repository;
+import cronWeb.cronWeb_Spring.domain.member.Member;
 import cronWeb.cronWeb_Spring.domain.post.Post;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -9,6 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
+@Slf4j
 @Transactional
 public class PostRepository {
 
@@ -26,8 +29,18 @@ public class PostRepository {
     }
 
 
-    // 좋아요 남기기
+    // 포스트의 작성자 보내기
+    public Member findPostByUser(Long postId) {
 
+        String jpql = "SELECT p.member FROM Post p " +
+                "WHERE p.id = :postId ";
+
+        return em.createQuery(jpql, Member.class)
+                .setParameter("postId", postId)
+                .getSingleResult();
+    }
+
+    // 좋아요 남기기
 
     // 리트윗 하기
 
