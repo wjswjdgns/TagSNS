@@ -3,7 +3,7 @@ import cronWeb.cronWeb_Spring.domain.member.Member;
 import cronWeb.cronWeb_Spring.domain.post.Post;
 import cronWeb.cronWeb_Spring.domain.post.PostInfo;
 import cronWeb.cronWeb_Spring.dto.request.PostRequest;
-import cronWeb.cronWeb_Spring.dto.response.PostResponse;
+import cronWeb.cronWeb_Spring.dto.response.post.PostResponse;
 import cronWeb.cronWeb_Spring.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

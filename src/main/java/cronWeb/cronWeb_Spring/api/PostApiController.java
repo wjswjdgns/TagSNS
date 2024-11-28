@@ -1,13 +1,11 @@
 package cronWeb.cronWeb_Spring.api;
-import cronWeb.cronWeb_Spring.SessionConst;
 import cronWeb.cronWeb_Spring.argumentresolver.Login;
 import cronWeb.cronWeb_Spring.domain.member.Member;
 import cronWeb.cronWeb_Spring.dto.request.PostRequest;
-import cronWeb.cronWeb_Spring.dto.response.PostResponse;
+import cronWeb.cronWeb_Spring.dto.response.post.PostListResponseWrapper;
+import cronWeb.cronWeb_Spring.dto.response.post.PostResponse;
 import cronWeb.cronWeb_Spring.dto.response.ServerResponse;
-import cronWeb.cronWeb_Spring.service.MemberService;
 import cronWeb.cronWeb_Spring.service.PostService;
-import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,9 +32,9 @@ public class PostApiController {
 
     // 포스트 받아오기 --> 조건을 주면 그에 맞게 필터되도록
     @PostMapping("search/all")
-    public ResponseEntity<List<PostResponse>> getPost(){
+    public ResponseEntity<PostListResponseWrapper> getPost(){
         List<PostResponse> posts = postService.getPosts();
-        return ResponseEntity.status(HttpStatus.CREATED).body(posts);
+        return ResponseEntity.status(HttpStatus.CREATED).body(new PostListResponseWrapper(posts));
     }
 
 

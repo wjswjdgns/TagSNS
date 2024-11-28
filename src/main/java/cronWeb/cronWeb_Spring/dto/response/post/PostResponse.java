@@ -1,4 +1,4 @@
-package cronWeb.cronWeb_Spring.dto.response;
+package cronWeb.cronWeb_Spring.dto.response.post;
 import cronWeb.cronWeb_Spring.domain.post.Post;
 import lombok.Data;
 
