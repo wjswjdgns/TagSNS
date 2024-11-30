@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Square:wght@400;700&display=swap" rel="stylesheet"> <!-- 나눔스퀘어 링크 추가 -->
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/layout.css">
-    <title>Sign Up</title>
+<head th:replace="fragments/header :: header(~{::title},~{::link})">
+    <title>Sign up</title>
+    <link rel="stylesheet" th:href="@{/css/layout.css}">
 </head>
+
 <body>
     <div class="mid-container">
         <header>

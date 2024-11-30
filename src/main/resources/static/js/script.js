@@ -19,6 +19,15 @@ function logout(){
     });
 }
 
+/*이동*/
+function moveMain(){
+    window.location.href = "/main";
+}
+
+function moveMypage(){
+    window.location.href = "/mypage";
+}
+
 
 function test(){
     fetch("/search/all",{

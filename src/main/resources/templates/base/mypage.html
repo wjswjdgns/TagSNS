@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header(~{::title},~{::link})">
+    <title>My page</title>
+
+    <link rel="stylesheet" th:href="@{/css/card.css}">
+    <link rel="stylesheet" th:href="@{/css/layout.css}">
+    <link rel="stylesheet" th:href="@{/css/nav.css}">
+    <link rel="stylesheet" th:href="@{/css/sub.css}">
+    <link rel="stylesheet" th:href="@{/css/sub_explore.css}">
+    <link rel="stylesheet" th:href="@{/css/modal.css}">
+    <link rel="stylesheet" th:href="@{/css/write.css}">
+    <link rel="stylesheet" th:href="@{/css/mypage.css}">
+</head>
+<body>
+    <div th:replace="~{fragments/nav :: navigation}"></div>
+    <div class="activate-container">
+        <div class="main-container">
+            <div class="mypage">
+                <!-- 프로필 헤더 -->
+                <section class="profile-header">
+                    <div class="background-image"></div>
+                    <div class="profile-image">
+                        <img src="profile.jpg" alt="Profile Image">
+                    </div>
+                </section>
+
+                <section class="profile-info">
+                    <h2 class="nickname">사용자 이름</h2>
+                    <p class="unique-id">@unique_id</p>
+                    <p class="bio">자기소개 내용이 여기에 들어갑니다.</p>
+                    <button class="edit-profile-button">Edit Profile</button>
+                </section>
+
+                <!-- 탭 버튼 HTML 구조 -->
+                <div class="mypage tab-area">
+                    <button class="tab-button active" data-filter="all">
+                        <i class="fas fa-home"></i> <!-- 아이콘 -->
+                        <span class="tab-title">All</span> <!-- 전체 -->
+                    </button>
+                    <button class="tab-button" data-filter="retwit">
+                        <i class="fas fa-retweet"></i> <!-- Retwit 아이콘 -->
+                        <span class="tab-title">Retwit</span> <!-- Retwit -->
+                    </button>
+                    <button class="tab-button" data-filter="likes">
+                        <i class="fas fa-heart"></i> <!-- 아이콘 -->
+                        <span class="tab-title">Likes</span> <!-- 좋아요 -->
+                    </button>
+                    <button class="tab-button" data-filter="comments">
+                        <i class="fas fa-comment"></i> <!-- 아이콘 -->
+                        <span class="tab-title">Comments</span> <!-- 댓글 -->
+                    </button>
+                </div>
+
+                <!-- 카드 영역 -->
+                <section class="card-area">
+                    <!-- 각 카드 콘텐츠는 템플릿으로 분리하여 재사용 -->
+                    <div th:replace="~{fragments/card :: user-post}"></div>
+                    <div th:replace="~{fragments/card :: user-post}"></div>
+                    <div th:replace="~{fragments/card :: user-post}"></div>
+                    <div th:replace="~{fragments/card :: user-post}"></div>
+                    <div th:replace="~{fragments/card :: user-post}"></div>
+                    <div th:replace="~{fragments/card :: user-post}"></div>
+                    <div th:replace="~{fragments/card :: user-post}"></div>
+                    <div th:replace="~{fragments/card :: user-post}"></div>
+                    <div th:replace="~{fragments/card :: user-post}"></div>
+                </section>
+            </div>
+        </div>
+        <div class="sub-container">
+            <div class="subLayout">
+                <!-- 사용자 목록 -->
+                <div th:replace="~{fragments/explore :: user-explore}"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script th:replace="~{fragments/script :: default}"></script>
+</html>

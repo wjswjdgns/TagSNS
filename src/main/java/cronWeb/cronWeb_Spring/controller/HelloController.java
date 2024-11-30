@@ -37,7 +37,10 @@ public class HelloController {
     }
 
     @GetMapping("mypage")
-    public String mypage(Model model){
+    public String mypage(@Login Member loginMember, Model model){
+
+        UserResponse profile = new UserResponse(loginMember);
+        model.addAttribute("userInfo", profile);
         return "base/mypage";
     }
 }

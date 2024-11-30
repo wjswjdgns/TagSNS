@@ -1,137 +1,104 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SNS Main Screen</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Square:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/card.css">
-    <link rel="stylesheet" href="/css/layout.css">
-    <link rel="stylesheet" href="/css/nav.css">
-    <link rel="stylesheet" href="/css/sub.css">
-    <link rel="stylesheet" href="/css/sub_explore.css">
-    <link rel="stylesheet" href="/css/modal.css">
-    <link rel="stylesheet" href="/css/write.css">
+<head th:replace="fragments/header :: header(~{::title},~{::link})">
+    <title>Main Page</title>
+
+    <link rel="stylesheet" th:href="@{/css/card.css}">
+    <link rel="stylesheet" th:href="@{/css/layout.css}">
+    <link rel="stylesheet" th:href="@{/css/nav.css}">
+    <link rel="stylesheet" th:href="@{/css/sub.css}">
+    <link rel="stylesheet" th:href="@{/css/sub_explore.css}">
+    <link rel="stylesheet" th:href="@{/css/modal.css}">
+    <link rel="stylesheet" th:href="@{/css/write.css}">
 </head>
 <body>
 
+    <div th:replace="~{fragments/nav :: navigation}"></div>
 
-<div class="nav-container">
-    <div class="sidebar">
+    <!-- 카드 레이아웃 -->
+    <div class="activate-container">
+        <div class="main-container">
+            <div th:replace="~{fragments/card :: user-post}"></div>
+        </div>
 
-        <!--사용자 정보를 th문으로 불러오기-->
-        <div class="profile-section">
-            <img th:src="${#strings.isEmpty(userInfo.profileImg) ? '/img/default_profile.png' : userInfo.profileImg}" alt="Profile Picture">
-            <div class="profile-info">
-                <p th:text="${userInfo.nickname}">닉네임이 들어갑니다</p>
-                <span th:text="${userInfo.personal}">고유 ID가 들어갑니다.</span>
+        <div class="sub-container">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search">
             </div>
-        </div>
-        <ul class="menu-list">
-            <li class="active">메인 <span class="badge">2</span></li>
-            <li>검색</li>
-            <li>알림</li>
-            <li>태그 <span class="badge">14</span></li>
-            <li>프로필</li>
-        </ul>
-        <!-- 글쓰기 버튼 추가 -->
-        <div class="write-button-container">
-            <button class="write-button" onclick="showWriteModal()">글쓰기</button>
-        </div>
-        <div class="settings-section">
-            <p onclick="test()">Settings</p>
-            <p onclick="logout()">Log out</p>
-        </div>
-    </div>
-</div>
 
-<!-- 카드 레이아웃 -->
-<div class="activate-container">
-    <div class="main-container">
-        <div th:replace="~{fragments/card :: user-post}"></div>
-    </div>
-
-    <div class="sub-container">
-        <div class="search-bar">
-            <i class="fas fa-search"></i>
-            <input type="text" placeholder="Search">
-        </div>
-
-        <div class="subLayout">
-            <!-- 사용자 목록 -->
-            <div class="sub-section">
-                <h1>Tag List</h1>
-                <div class="sub-content">
-                    <h1>사용자</h1>
-                    <button onclick="toggleSelection(this)" class="user-btn">Alan Smith</button>
-                    <button onclick="toggleSelection(this)" class="user-btn">Jason Smith</button>
-                    <button onclick="toggleSelection(this)" class="user-btn">Emma Brown</button>
-                </div>
-                <div class="sub-content">
-                    <h1>태그</h1>
-                    <button onclick="toggleSelection(this)" class="user-btn">#Alan Smith</button>
-                    <button onclick="toggleSelection(this)" class="user-btn">#Jason Smith</button>
-                    <button onclick="toggleSelection(this)" class="user-btn">#Emma</button>
-                    <button onclick="toggleSelection(this)" class="user-btn">#Alan Smith</button>
-                    <button onclick="toggleSelection(this)" class="user-btn">#Jason</button>
-                    <button onclick="toggleSelection(this)" class="user-btn">#Emma Brown</button>
-                    <button onclick="toggleSelection(this)" class="user-btn">#Alan Smith</button>
-                    <button onclick="toggleSelection(this)" class="user-btn">#Jason Smith</button>
-                    <button onclick="toggleSelection(this)" class="user-btn">#Emma</button>
-                    <button onclick="toggleSelection(this)" class="user-btn">#Alan</button>
-                    <button onclick="toggleSelection(this)" class="user-btn">#Jason</button>
-                    <button onclick="toggleSelection(this)" class="user-btn">#Emma</button>
-                    <button onclick="toggleSelection(this)" class="user-btn">#Alan Smith</button>
-                    <button onclick="toggleSelection(this)" class="user-btn">#Jason</button>
-                    <button onclick="toggleSelection(this)" class="user-btn">#Emma Brown</button>
+            <div class="subLayout">
+                <!-- 사용자 목록 -->
+                <div class="sub-section">
+                    <h1>Tag List</h1>
+                    <div class="sub-content">
+                        <h1>사용자</h1>
+                        <button onclick="toggleSelection(this)" class="user-btn">Alan Smith</button>
+                        <button onclick="toggleSelection(this)" class="user-btn">Jason Smith</button>
+                        <button onclick="toggleSelection(this)" class="user-btn">Emma Brown</button>
+                    </div>
+                    <div class="sub-content">
+                        <h1>태그</h1>
+                        <button onclick="toggleSelection(this)" class="user-btn">#Alan Smith</button>
+                        <button onclick="toggleSelection(this)" class="user-btn">#Jason Smith</button>
+                        <button onclick="toggleSelection(this)" class="user-btn">#Emma</button>
+                        <button onclick="toggleSelection(this)" class="user-btn">#Alan Smith</button>
+                        <button onclick="toggleSelection(this)" class="user-btn">#Jason</button>
+                        <button onclick="toggleSelection(this)" class="user-btn">#Emma Brown</button>
+                        <button onclick="toggleSelection(this)" class="user-btn">#Alan Smith</button>
+                        <button onclick="toggleSelection(this)" class="user-btn">#Jason Smith</button>
+                        <button onclick="toggleSelection(this)" class="user-btn">#Emma</button>
+                        <button onclick="toggleSelection(this)" class="user-btn">#Alan</button>
+                        <button onclick="toggleSelection(this)" class="user-btn">#Jason</button>
+                        <button onclick="toggleSelection(this)" class="user-btn">#Emma</button>
+                        <button onclick="toggleSelection(this)" class="user-btn">#Alan Smith</button>
+                        <button onclick="toggleSelection(this)" class="user-btn">#Jason</button>
+                        <button onclick="toggleSelection(this)" class="user-btn">#Emma Brown</button>
+                    </div>
                 </div>
             </div>
+
+
+            <div class="subLayout">
+                <!-- 사용자 목록 -->
+                <div th:replace="~{fragments/explore :: user-explore}"></div>
+            </div>
+
+
         </div>
-
-
-        <div class="subLayout">
-            <!-- 사용자 목록 -->
-            <div th:replace="~{fragments/explore :: user-explore}"></div>
-        </div>
-
-
     </div>
-</div>
 
-<div class="modal" id="writeModal">
-    <div class="modal-content">
-        <h2>
-            글 작성하기
-            <button class="close-button" onclick="closeWriteModal()">
-                <i class="fas fa-times"></i>
-            </button>
-        </h2>
-        <div class="input-group">
-            <label for="post-content">내용</label>
-            <textarea id="post-content" placeholder="내용을 입력하세요..." rows="5" required></textarea>
+    <div class="modal" id="writeModal">
+        <div class="modal-content">
+            <h2>
+                글 작성하기
+                <button class="close-button" onclick="closeWriteModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </h2>
+            <div class="input-group">
+                <label for="post-content">내용</label>
+                <textarea id="post-content" placeholder="내용을 입력하세요..." rows="5" required></textarea>
+            </div>
+            <p class="error-message" id="post-error"></p>
+            <div class="tag-group">
+                <h2>태그 추가</h2>
+                <input
+                        type="text"
+                        class="tag-search"
+                        placeholder="태그 검색..."
+                        oninput="searchTags()"
+                />
+            </div>
+            <div class="image-upload">
+                <label for="post-image">
+                    <i class="fas fa-image"></i> 사진 추가
+                </label>
+                <input type="file" id="post-image" accept="image/*" style="display: none;" />
+            </div>
+            <button class="active-button" onclick="submitPost()">작성 완료</button>
         </div>
-        <p class="error-message" id="post-error"></p>
-        <div class="tag-group">
-            <h2>태그 추가</h2>
-            <input
-                    type="text"
-                    class="tag-search"
-                    placeholder="태그 검색..."
-                    oninput="searchTags()"
-            />
-        </div>
-        <div class="image-upload">
-            <label for="post-image">
-                <i class="fas fa-image"></i> 사진 추가
-            </label>
-            <input type="file" id="post-image" accept="image/*" style="display: none;" />
-        </div>
-        <button class="active-button" onclick="submitPost()">작성 완료</button>
     </div>
-</div>
 
 </body>
 
